@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
+import './Cards.css'
 
 const Cards = () => {
     const services = {
         url:"https://api.unsplash.com/",
-        path:"/photos/random",
+        path:"/photos/",
         urlKey:"?client_id=",
         key: "dYUO0r_XcG3_bkcB5FRgXsiLQGjE5nGvijrRml1SLGs"
     }
-    const [image, setImage] = useState({
-        urls:{
-            regular:"",
-        }
-    });
+    const [images, setImages] = useState([]);
 
     const loadImage = async () => {
         const res = await fetch(`${services.url}${services.path}${services.urlKey}${services.key}`);
         const data = await res.json();
         console.log(data);
-        setImage(data)
+        setImages(data)
     }
-    useEffect(() => {
-        
+    useEffect(() => {  
         loadImage();
-        
-    }, [])
+    }, []);
+
     return (
         <>
-            <Card img={image.urls.regular} name="image"/>   
+            <div className="container-flex">
+                {
+                    images.map(img => {
+                        return <Card key={img.id} img={img.urls.regular} name="image"/>   
+                    })
+                }
+            </div>
         </>
     )
 }
