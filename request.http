@@ -1,0 +1,12 @@
+###GET
+@URL = https://api.unsplash.com/
+@key = Client-ID dYUO0r_XcG3_bkcB5FRgXsiLQGjE5nGvijrRml1SLGs
+@onlyKey = dYUO0r_XcG3_bkcB5FRgXsiLQGjE5nGvijrRml1SLGs
+GET {{URL}}
+
+###GET Random photo
+GET {{URL}}/photos/random
+Authorization: {{key}}
+
+###GET Random photo url
+GET {{URL}}/photos/random/?client_id={{onlyKey}}
