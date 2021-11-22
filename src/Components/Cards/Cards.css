@@ -22,6 +22,30 @@
     object-position: top center;
 }
 
+.form-search{
+    display: flex;
+    justify-content: center;
+}
+
+.input-search{
+    width: 410px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(193, 193, 214, 0.377);
+}
+
+.form-search > button{
+    border: none;
+    background-color: transparent;
+    position: relative;
+    left: -40px;
+    z-index: 2;
+    cursor: pointer;
+}
+
 @media (max-width: 787px) {
     .card{
         flex: 100%;

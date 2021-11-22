@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import Categories from '../Link/Categories';
 import Card from './Card'
+
 import './Cards.css'
+import Search from './search-icon.svg'
 
 const Cards = () => {
     const [images, setImages] = useState([]);
@@ -52,8 +54,12 @@ const Cards = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <label>Buscar Imagen <input type="text" /> </label>
+            <form onSubmit={handleSubmit} className="form-search">
+                <input type="text" className="input-search" placeholder="Search image" />
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+                
             </form>
 
             <Categories callback={setInputSearch} />
