@@ -14,6 +14,9 @@ const Cards = () => {
     //Loader
     const [loading, setLoading] = useState(true)
 
+    //Titulo Imagenes
+    const [titleImage, setTitleImage] = useState("Last Images")
+
     const loadImage = useCallback(
         async () => {
             const services = {
@@ -38,6 +41,8 @@ const Cards = () => {
             const data = await res.json();
             console.log(data.results);
             
+            inputSearch ? setTitleImage(inputSearch) : setTitleImage("Last Images")
+
             if (data.results)
                 setImages(data.results)
             else
@@ -75,9 +80,13 @@ const Cards = () => {
             {
                 !loading &&
                 <div className="container-flex-cards">
+                    {images.length <= 0 && <h1>Without results</h1>}
                     {
-                        images.map(img => {
-                            return <Card key={img.id} img={img.urls.small} name="image"/>   
+                        images.map((img, i) => {
+                            console.log(typeof i);
+                            console.log(i===0);
+                            
+                            return <Card key={img.id} img={img.urls.small} name="image" title={i===0 && titleImage}/>
                         })
                     }
                 </div>

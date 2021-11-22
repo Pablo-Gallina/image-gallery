@@ -8,6 +8,8 @@
     background-color: transparent;
     position: relative;
     z-index: 20;
+    margin-top: 140px;
+    min-height: 30vh;
 }
 
 .card {
@@ -17,6 +19,12 @@
     margin-top: 20px;
     background-color: transparent;
 }
+
+.card > h1 {
+    position: absolute;
+    top: -60px;
+    background-color: transparent;
+}   
 
 .card img {
     width: 100%;
