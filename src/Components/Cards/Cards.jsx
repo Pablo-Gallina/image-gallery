@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Card from './Card'
 import './Cards.css'
 
@@ -7,36 +7,40 @@ const Cards = () => {
     //Search
     const [inputSearch, setInputSearch] = useState("");
 
-    const services = {
-        url:"https://api.unsplash.com/",
-        urlPhotos:"/photos/",
-        urlSearch: "/search/photos",
-        urlKey:"?client_id=",
-        urlKeySearch:`?query=${inputSearch}`,
-        key: "dYUO0r_XcG3_bkcB5FRgXsiLQGjE5nGvijrRml1SLGs"
-    }
+    
 
-    const loadImage = async ( _url = "" ) => {
-        const RandomPhotos = `${services.url}${services.urlPhotos}${services.urlKey}${services.key}`;
-        const searchPhoto = `${services.url}${services.urlSearch}${services.urlKeySearch}&client_id=${services.key}`;
+    const loadImage = useCallback(
+        async () => {
+            const services = {
+                url:"https://api.unsplash.com/",
+                urlPhotos:"/photos/",
+                urlSearch: "/search/photos",
+                urlKey:"?client_id=",
+                urlKeySearch:`?query=${inputSearch}`,
+                key: "dYUO0r_XcG3_bkcB5FRgXsiLQGjE5nGvijrRml1SLGs"
+            }
+            
+            const encodeInputSearch = encodeURI(services.urlKeySearch)
+    
+            const RandomPhotos = `${services.url}${services.urlPhotos}${services.urlKey}${services.key}`;
+            const searchPhoto = `${services.url}${services.urlSearch}${encodeInputSearch}&client_id=${services.key}`;
+    
+            const peticionUrl = inputSearch !== "" ? searchPhoto : RandomPhotos;
+            
+            const res = await fetch(peticionUrl);
+            const data = await res.json();
+            console.log(data);
+    
+            if (data.results)
+                setImages(data.results)
+            else
+                setImages(data)
+        },[inputSearch]
+    );
 
-        console.log(RandomPhotos);
-        console.log(searchPhoto);
-
-        const peticionUrl = _url !== "" ? searchPhoto : RandomPhotos;
-        
-        const res = await fetch(peticionUrl);
-        const data = await res.json();
-        console.log(data);
-
-        if (data.results)
-            setImages(data.results)
-        else
-            setImages(data)
-    }
     useEffect(() => {  
-        loadImage(inputSearch);
-    }, [inputSearch]);
+        loadImage();
+    }, [loadImage]);
 
     const handleSubmit = e =>{
         e.preventDefault();
