@@ -6,4 +6,5 @@
     height: 100px;
     gap: 120px;
     padding: 0 10px;
+    z-index: 20;
 }

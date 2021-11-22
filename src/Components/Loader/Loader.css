@@ -1,0 +1,30 @@
+.loader-container {
+    background-color: transparent;
+    display: flex;
+    padding-top: 150px;
+    justify-content: center;
+    min-height: 100vh;
+}
+.dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: hsl(0, 0%, 9%);
+    margin: 0 10px;
+}
+.d1 {
+    animation: loader infinite 0.3s alternate;
+}
+.d2 {
+    animation: loader infinite 0.3s 0.05s alternate;
+}
+.d3 {
+    animation: loader infinite 0.3s 0.1s alternate;
+}
+
+
+@keyframes loader {
+    100% {
+        transform: translateY(-30px);
+    }
+}

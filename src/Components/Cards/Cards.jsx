@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import Categories from '../Link/Categories';
+import Loader from '../Loader/Loader';
 import Card from './Card'
 
 import './Cards.css'
@@ -10,7 +11,8 @@ const Cards = () => {
     //Search
     const [inputSearch, setInputSearch] = useState("");
 
-    
+    //Loader
+    const [loading, setLoading] = useState(true)
 
     const loadImage = useCallback(
         async () => {
@@ -30,6 +32,8 @@ const Cards = () => {
     
             const peticionUrl = inputSearch !== "" ? searchPhoto : RandomPhotos;
             
+            setLoading(true);
+
             const res = await fetch(peticionUrl);
             const data = await res.json();
             console.log(data.results);
@@ -38,6 +42,8 @@ const Cards = () => {
                 setImages(data.results)
             else
                 setImages(data)
+
+            setLoading(false);
         },[inputSearch]
     );
 
@@ -64,14 +70,19 @@ const Cards = () => {
 
             <Categories callback={setInputSearch} />
 
-            <br />
-            <div className="container-flex">
-                {
-                    images.map(img => {
-                        return <Card key={img.id} img={img.urls.small} name="image"/>   
-                    })
-                }
-            </div>
+            {loading && <Loader />}
+            
+            {
+                !loading &&
+                <div className="container-flex-cards">
+                    {
+                        images.map(img => {
+                            return <Card key={img.id} img={img.urls.small} name="image"/>   
+                        })
+                    }
+                </div>
+            }
+           
         </>
     )
 }

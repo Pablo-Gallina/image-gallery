@@ -2,4 +2,9 @@
     font-family: 'Roboto', sans-serif;
     background-color: #F8F9FC;
     color: hsl(0, 0%, 9%);
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
 }

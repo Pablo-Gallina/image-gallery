@@ -1,10 +1,13 @@
-.container-flex{
+.container-flex-cards{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 80px;
     padding-left: 50px;
     padding-right: 50px;
+    background-color: transparent;
+    position: relative;
+    z-index: 20;
 }
 
 .card {
@@ -12,6 +15,7 @@
     height: 200px;
     margin-right: 35px;
     margin-top: 20px;
+    background-color: transparent;
 }
 
 .card img {
@@ -28,13 +32,17 @@
 }
 
 .input-search{
-    width: 410px;
+    width: 450px;
     height: 40px;
     border: none;
     border-radius: 5px;
     padding: 0 25px;
     background-color: white;
     box-shadow: 0 0 20px rgba(193, 193, 214, 0.377);
+    margin-left: 20px;
+    outline: none;
+    position: relative;
+    z-index: 20;
 }
 
 .form-search > button{
@@ -54,7 +62,7 @@
 }
 
 @media (max-width: 635px) {
-    .container-flex{
+    .container-flex-cards{
         padding-left: 30px;
         padding-right: 30px;
     }
