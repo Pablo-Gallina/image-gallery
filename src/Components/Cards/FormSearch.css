@@ -1,0 +1,27 @@
+.form-search{
+    display: flex;
+    justify-content: center;
+}
+
+.input-search{
+    width: 450px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 25px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(193, 193, 214, 0.377);
+    margin-left: 20px;
+    outline: none;
+    position: relative;
+    z-index: 20;
+}
+
+.form-search > button{
+    border: none;
+    background-color: transparent;
+    position: relative;
+    left: -40px;
+    z-index: 30;
+    cursor: pointer;
+}
