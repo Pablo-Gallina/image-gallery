@@ -1,0 +1,15 @@
+.categories{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.categories > label:hover {
+    cursor: pointer;
+    font-weight: 600;
+}

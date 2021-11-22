@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 const Card = ({img, name}) => {
     return (
         <div className="card">
-            Card <br />
             <img src={img} alt={name}/>
         </div>
     )
@@ -12,7 +11,7 @@ const Card = ({img, name}) => {
 
 Card.propTypes = {
     img: PropTypes.string,
-    alt: PropTypes.string
+    name: PropTypes.string
 }
 
 export default Card

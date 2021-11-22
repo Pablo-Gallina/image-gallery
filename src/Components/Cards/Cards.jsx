@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
+import Categories from '../Link/Categories';
 import Card from './Card'
 import './Cards.css'
 
@@ -29,8 +30,8 @@ const Cards = () => {
             
             const res = await fetch(peticionUrl);
             const data = await res.json();
-            console.log(data);
-    
+            console.log(data.results);
+            
             if (data.results)
                 setImages(data.results)
             else
@@ -54,11 +55,14 @@ const Cards = () => {
             <form onSubmit={handleSubmit}>
                 <label>Buscar Imagen <input type="text" /> </label>
             </form>
+
+            <Categories callback={setInputSearch} />
+
             <br />
             <div className="container-flex">
                 {
                     images.map(img => {
-                        return <Card key={img.id} img={img.urls.regular} name="image"/>   
+                        return <Card key={img.id} img={img.urls.small} name="image"/>   
                     })
                 }
             </div>

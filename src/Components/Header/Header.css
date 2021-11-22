@@ -1,0 +1,15 @@
+.flex-container{
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.flex-container > h1 {
+    font-size: 50px;
+}
+
+.flex-container > img {
+    width: 70px;
+}
