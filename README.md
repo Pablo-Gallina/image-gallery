@@ -1,6 +1,8 @@
 # Image Gallery
 
-_Galeria de imagenes usando react y la api de Unsplash_
+_Galeria de imagenes que permite buscar y descargar imagenes_
+
+[Ver Demo](https://react-image-gallery-red.vercel.app/)
 
 ## Comenzando 🚀
 
@@ -13,13 +15,14 @@ _Instalar los modulos necesarios para el proyecto_
 ```
 npm install
 ```
-o
+ó
 ```
 yarn install
 ```
 
 ## Construido con 🛠️
 * [React](https://es.reactjs.org/) - El framework web usado
+* [PWA](https://web.dev/progressive-web-apps/) - Para que el sitio web que funcione como una aplicación nativa.
 * [Unsplash](https://unsplash.com/developers) - Api usada para las imagenes
 * [Figma](https://www.figma.com) - Para el prototipado de la app
 
