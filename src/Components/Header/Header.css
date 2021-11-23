@@ -17,3 +17,21 @@
 .flex-container > img {
     width: 70px;
 }
+
+
+@media (max-width: 800px) {
+    .flex-container > img {
+        width: 50px;
+    }
+    .flex-container > h1 {
+        font-size: 40px;
+    }
+    
+}
+
+
+@media (max-width: 345px) {
+    .flex-container > h1 {
+        font-size: 30px;
+    }
+}

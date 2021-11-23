@@ -14,3 +14,17 @@
     cursor: pointer;
     font-weight: 600;
 }
+
+@media (max-width: 460px) {
+    .categories{
+        gap: 20px;
+        font-size: .9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .categories{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

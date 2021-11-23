@@ -25,3 +25,9 @@
     z-index: 30;
     cursor: pointer;
 }
+
+@media (max-width: 635px) {
+    .input-search{
+        width: 90%;
+    }
+}
