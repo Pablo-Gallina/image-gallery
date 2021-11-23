@@ -17,17 +17,14 @@ const Cards = () => {
             <Categories callback={setInputSearch} />
 
             {loading && <Loader />}
-            
+
             {
                 !loading &&
                 <div className="container-flex-cards">
                     {images.length <= 0 && <h1>Without results</h1>}
                     {
                         images.map((img, i) => {
-                            console.log(typeof i);
-                            console.log(i===0);
-                            
-                            return <Card key={img.id} img={img.urls.small} name="image" title={i===0 && titleImage}/>
+                            return <Card key={img.id} img={img} name="image" title={i===0 && titleImage}/>
                         })
                     }
                 </div>

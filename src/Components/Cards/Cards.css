@@ -18,7 +18,50 @@
     margin-right: 35px;
     margin-top: 20px;
     background-color: transparent;
+    position: relative;
 }
+
+.card > .overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.349);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    transition: opacity .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover > .overlay {
+    opacity: 1;
+}
+
+.overlay > button {
+    background-color: transparent;
+    border: none;
+}
+.overlay > button > a {
+    width: 100px;
+    padding: 12px 48px;
+    text-align: center;
+    color: white;
+    border: solid 2px white;
+    z-index: 1;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color .3s;
+}
+
+.overlay > button > a:hover {
+    background-color: white;
+    color: hsl(0, 0%, 9%);
+    border: solid 2px white;
+}
+
 
 .card > h1 {
     position: absolute;

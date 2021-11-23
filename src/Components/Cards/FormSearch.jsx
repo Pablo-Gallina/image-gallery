@@ -8,7 +8,7 @@ const FormSearch = ({handleSubmit}) => {
         <form onSubmit={handleSubmit} className="form-search">
             <input type="text" className="input-search" placeholder="Search image" />
             <button type="submit">
-                <i class="fa fa-search"></i>
+                <i className="fa fa-search"></i>
             </button>
         </form>
     )

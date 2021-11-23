@@ -33,7 +33,6 @@ const useFetchImages = () => {
 
             const res = await fetch(peticionUrl);
             const data = await res.json();
-            console.log(data.results);
             
             inputSearch ? setTitleImage(inputSearch) : setTitleImage("Last Images")
 
